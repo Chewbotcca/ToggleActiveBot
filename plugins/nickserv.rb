@@ -21,7 +21,7 @@ class NickServ
   end
 
   def register(m, pass, email)
-    if getrank(m, m.user) > 1
+    if getrank(m, m.user.name) > 1
       User('NickServ').send("register #{pass} #{email}")
       CONFIG['nickservpass'] = pass.to_s
       File.open('config.yaml', 'w') { |f| f.write CONFIG.to_yaml }
