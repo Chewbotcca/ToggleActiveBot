@@ -67,7 +67,7 @@ botserverpass = if CONFIG['serverpass'].nil? || CONFIG['serverpass'] == ''
                 end
 
 botprefix = if CONFIG['prefix'].nil? || CONFIG['prefix'] == ''
-              /!/
+              /=/
             else
               Regexp.new CONFIG['prefix']
             end
