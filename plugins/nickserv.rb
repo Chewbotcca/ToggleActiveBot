@@ -11,8 +11,17 @@ class NickServ
     end
   end
 
+  def getrank(m, user)
+    return 4 if m.channel.owners.join(' ').split(' ').include?(user)
+    return 3 if m.channel.admins.join(' ').split(' ').include?(user)
+    return 2 if m.channel.ops.join(' ').split(' ').include?(user)
+    return 1 if m.channel.half_ops.join(' ').split(' ').include?(user)
+    return 0 if m.channel.voiced.join(' ').split(' ').include?(user)
+    -1
+  end
+
   def register(m, pass, email)
-    if m.user.host == CONFIG['ownerhost']
+    if getrank(m, m,user) > 1
       User('NickServ').send("register #{pass} #{email}")
       CONFIG['nickservpass'] = pass.to_s
       File.open('config.yaml', 'w') { |f| f.write CONFIG.to_yaml }
