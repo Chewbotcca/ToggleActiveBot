@@ -81,6 +81,7 @@ bot = Cinch::Bot.new do
     c.channels = [CONFIG['channels']]
     c.port = botport
     c.user = botuser
+    c.messages_per_second = 20
     c.realname = botrealname
     c.ssl.use = botssl
     c.password = botserverpass
