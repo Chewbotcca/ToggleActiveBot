@@ -16,7 +16,7 @@ Type `=switch [bottag]` where bottag is whatever is defined in the config. The b
 
 Configure `config.yaml`, this decides the bot's nick, where it conencts, the usual.
 
-Run `=nickserv register [email] [pass]` to register. If needed, run `=nickserv verify [code]` found in the email.
+Run `=nsregister [email] [pass]` to register. If needed, run `=nsverify [code]` found in the email.
 
 Go ahead and give the bot auto-halfop or above, it'll need it.
 
